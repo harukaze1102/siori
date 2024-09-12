@@ -1,0 +1,124 @@
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ff6f61;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin: 0;
+    font-size: 3rem;
+    letter-spacing: 0.05em;
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.day-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.day {
+    flex: 0 1 calc(50% - 4rem);
+    background-color: #fff;
+    padding: 1.5rem;
+    margin-bottom: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.day:nth-child(odd) {
+    background-color: #ffe7d6;
+}
+
+.day:nth-child(even) {
+    background-color: #d6efff;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #ff6f61;
+    border-bottom: 3px solid #ffa726;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 1.2rem;
+    padding: 0.8rem 0;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px dashed #ffa726;
+    display: flex;
+    align-items: flex-start; /* Align text and image top */
+    flex-wrap: wrap;
+}
+
+ul li img {
+    margin-left: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px; /* 幅を300pxに統一 */
+    height: 200px; /* 高さを200pxに統一 */
+    object-fit: cover; /* アスペクト比を維持しつつ、画像をカバー */
+}
+
+
+a {
+    color: #ff6f61;
+    text-decoration: none;
+    font-weight: bold;
+    word-break: break-word; /* Ensure long URLs wrap properly */
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #ffa726;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #ff6f61;
+    color: white;
+    margin-top: 2rem;
+    border-radius: 0 0 10px 10px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .day-container {
+        flex-direction: column;
+    }
+
+    .day {
+        flex: 1 1 100%;
+    }
+}
