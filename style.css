@@ -33,6 +33,7 @@ header::after {
     right: 10px;
 }
 
+/* タイトルのフォントサイズを小さな画面でも折り返さないよう調整 */
 h1 {
     margin: 0;
     font-size: 3.5rem;
@@ -40,6 +41,9 @@ h1 {
     font-family: 'Satisfy', cursive;
     color: #fff5f7;
     text-shadow: 2px 2px 4px rgba(255, 82, 82, 0.4);
+    white-space: nowrap;  /* 折り返しを防ぐ */
+    overflow: hidden;     /* 画面サイズに収まらない部分を非表示に */
+    text-overflow: ellipsis;  /* 省略記号を表示 */
 }
 
 /* メインコンテナ */
@@ -83,19 +87,6 @@ main {
 .day:hover {
     transform: scale(1.07);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.ribbon {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background-color: #ff92a9;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* 日のタイトルに遊び心を追加 */
@@ -182,8 +173,16 @@ footer p {
     color: #ffe5e7;
 }
 
-/* メディアクエリ - 768px以下のスクリーンで1列に表示 */
+/* メディアクエリで小さな画面に対応 */
 @media (max-width: 768px) {
+    header {
+        padding: 1.5rem 0; /* 小さな画面でヘッダーの余白を縮小 */
+    }
+
+    h1 {
+        font-size: 2.5rem; /* タイトルを小さくして折り返し防止 */
+    }
+
     .day-container {
         flex-direction: column;
     }
