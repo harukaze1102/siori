@@ -1,33 +1,59 @@
+/* 全体の背景をカラフルなグラデーションに */
 body {
     font-family: 'Noto Sans JP', sans-serif;
-    background-color: #f4f4f9;
+    background: linear-gradient(135deg, #ffebf6 25%, #fff2e2 50%, #e5f6ff 75%);
     margin: 0;
     padding: 0;
 }
 
+/* ヘッダーをカラフルでポップに */
 header {
-    background-color: #ff6f61;
+    background-color: #ff92a9;
     color: white;
     text-align: center;
-    padding: 1.5rem 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem 0;
+    border-bottom: 8px solid #ffcad4;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+header::before {
+    content: "🎉";
+    font-size: 4rem;
+    position: absolute;
+    top: -20px;
+    left: 10px;
+}
+
+header::after {
+    content: "🌸";
+    font-size: 4rem;
+    position: absolute;
+    top: -20px;
+    right: 10px;
 }
 
 h1 {
     margin: 0;
-    font-size: 3rem;
-    letter-spacing: 0.05em;
+    font-size: 3.5rem;
+    letter-spacing: 0.2em;
+    font-family: 'Satisfy', cursive;
+    color: #fff5f7;
+    text-shadow: 2px 2px 4px rgba(255, 82, 82, 0.4);
 }
 
+/* メインコンテナ */
 main {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border: 5px solid #ffe3ea;
 }
 
+/* 横並びのレイアウトを保持するための設定 */
 .day-container {
     display: flex;
     justify-content: space-between;
@@ -35,31 +61,67 @@ main {
     gap: 2rem;
 }
 
-.day {
-    flex: 0 1 calc(50% - 4rem);
-    background-color: #fff;
-    padding: 1.5rem;
-    margin-bottom: 3rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-}
-
+/* 各日の背景色を個別に変更 */
 .day:nth-child(odd) {
-    background-color: #ffe7d6;
+    background: linear-gradient(135deg, #ffcad4, #ffe3ea);
 }
 
 .day:nth-child(even) {
-    background-color: #d6efff;
+    background: linear-gradient(135deg, #c3e5ff, #e6f4ff);
 }
 
+.day {
+    flex: 0 1 calc(50% - 5rem); /* 2列表示を維持 */
+    padding: 2rem;
+    margin-bottom: 3rem;
+    border-radius: 25px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.day:hover {
+    transform: scale(1.07);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.ribbon {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #ff92a9;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* 日のタイトルに遊び心を追加 */
 h2 {
-    font-size: 2.5rem;
-    color: #ff6f61;
-    border-bottom: 3px solid #ffa726;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.8rem;
+    color: #ff6f8e;
+    border-bottom: 4px solid #ffa5ab;
+    padding-bottom: 0.7rem;
+    margin-bottom: 1.5rem;
     text-align: center;
+    position: relative;
+    font-family: 'Quicksand', sans-serif;
+}
+
+h2::before {
+    content: "🎀";
+    position: absolute;
+    left: -2rem;
+    font-size: 2.5rem;
+}
+
+h2::after {
+    content: "💖";
+    position: absolute;
+    right: -2rem;
+    font-size: 2.5rem;
 }
 
 ul {
@@ -68,57 +130,69 @@ ul {
 }
 
 ul li {
-    font-size: 1.2rem;
-    padding: 0.8rem 0;
-    margin-bottom: 0.5rem;
-    border-bottom: 1px dashed #ffa726;
+    font-size: 1.6rem;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 2px dotted #ffa5ab;
     display: flex;
-    align-items: flex-start; /* Align text and image top */
+    align-items: flex-start;
     flex-wrap: wrap;
+    color: #555;
 }
 
 ul li img {
-    margin-left: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px; /* 幅を300pxに統一 */
-    height: 200px; /* 高さを200pxに統一 */
-    object-fit: cover; /* アスペクト比を維持しつつ、画像をカバー */
+    margin-left: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border: 2px solid #ffcad4;
 }
 
-
+/* リンクにポップなカラーを適用 */
 a {
-    color: #ff6f61;
+    color: #ff4081;
     text-decoration: none;
     font-weight: bold;
-    word-break: break-word; /* Ensure long URLs wrap properly */
+    border-bottom: 2px dotted #ffa5ab;
+    transition: color 0.3s ease;
 }
 
 a:hover {
     text-decoration: underline;
-    color: #ffa726;
+    color: #ff79b0;
 }
 
+/* フッター */
 footer {
     text-align: center;
-    padding: 1rem;
-    background-color: #ff6f61;
+    padding: 1.5rem;
+    background-color: #ff92a9;
     color: white;
     margin-top: 2rem;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 25px 25px;
+    border-top: 5px solid #ffe3ea;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
 }
 
 footer p {
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    color: #ffe5e7;
 }
 
+/* メディアクエリ - 768px以下のスクリーンで1列に表示 */
 @media (max-width: 768px) {
     .day-container {
         flex-direction: column;
     }
 
     .day {
-        flex: 1 1 100%;
+        flex: 1 1 100%; /* モバイルで1列に表示 */
+    }
+
+    h2::before, h2::after {
+        left: -1rem;
     }
 }
