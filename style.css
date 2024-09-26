@@ -1,7 +1,7 @@
 /* style.css */
 body {
   font-family: "Noto Sans JP", sans-serif;
-  background-color: #f4f4f9; /* 落ち着いた薄いグレー */
+  background-color: #f4f4f9;
   color: #333;
   margin: 0;
   padding: 0;
@@ -19,26 +19,44 @@ header {
 
 header h1 {
   margin: 0;
-  color: #ffb6c1; /* ピンクで少し遊び心 */
+  color: #ffb6c1;
 }
 
 .day-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2列に設定 */
+  grid-template-areas:
+    "day1 day2"
+    "day3 day4"
+    ". day5"; /* 5日目を下中央に配置 */
   gap: 30px;
+  justify-content: center;
   padding: 20px;
+}
+
+.day:nth-child(1) {
+  grid-area: day1;
+}
+.day:nth-child(2) {
+  grid-area: day2;
+}
+.day:nth-child(3) {
+  grid-area: day3;
+}
+.day:nth-child(4) {
+  grid-area: day4;
+}
+.day:nth-child(5) {
+  grid-area: day5;
 }
 
 .day {
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  width: 300px;
   padding: 25px;
-  margin-bottom: 30px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-top: 6px solid #ff69b4; /* おしゃれなアクセントライン */
+  border-top: 6px solid #ff69b4;
 }
 
 .day:hover {
@@ -53,7 +71,7 @@ header h1 {
   color: #333;
   position: relative;
   padding-bottom: 10px;
-  border-bottom: 2px solid #ff69b4; /* おしゃれなボーダー */
+  border-bottom: 2px solid #ff69b4;
 }
 
 .ribbon {
@@ -122,11 +140,11 @@ footer {
 /* メディアクエリでスマホ対応 */
 @media (max-width: 600px) {
   .day-container {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
+    grid-template-areas: none; /* レスポンシブで1列に */
   }
 
   .day {
-    width: 90%;
+    width: 100%;
   }
 }
